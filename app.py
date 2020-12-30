@@ -209,7 +209,7 @@ def edit_article(id):
         body = request.form['body']
 
         # Update table
-        cur.execute('UPDATE articles SET title = %s, body = %s WHERE id = %s', (title, body, id))
+        cur.execute('UPDATE articles SET title = %s, body = %s, edit_date = CURRENT_TIMESTAMP WHERE id = %s', (title, body, id))
 
         # Commit
         mysql.connection.commit()
